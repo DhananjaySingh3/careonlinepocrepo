@@ -1,25 +1,41 @@
 <div>
-<!-- <div *ngIf="isPopupOpen"> -->
-
-
+  <!-- <div *ngIf="isPopupOpen"> -->
 
   <!-- Modal Main -->
   <div class="modal-header">
-    <h4 class="modal-title">Hi there!</h4>
+    <h4 class="modal-title">{{heading}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>Hello, World!</p>
+    <!-- Tab start -->
+    <ngb-tabset (tabChange)="beforeChange($event)">
+
+      <ngb-tab id="tab-one" title="Health Plan Verification">
+        <ng-template ngbTabContent>
+          <p>Nesciunt tofu stumptown aliqua, retro synth</p>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab id="tab-two" title="Member Insurance History">
+        <ng-template ngbTabContent>
+          <p>Art party scenester stumptown, sapiente accusamus tattooed echo park.</p>
+        </ng-template>
+      </ngb-tab>
+
+    </ngb-tabset>
+    
+    <!-- Tab End -->
+
     <div>
       <button class="btn btn-sm btn-outline-danger" (click)="open()">Eligibility Check</button>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" ngbAutofocus (click)="activeModal.close('Close click')">Close</button>
-    <button type="button" ngbAutofocus class="btn btn-danger"
-      (click)="activeModal.close('Ok click')">Ok</button>
+    <button type="button" class="btn btn-outline-dark" ngbAutofocus
+      (click)="activeModal.close('Close click')">Close</button>
+    <button type="button" ngbAutofocus class="btn btn-danger" (click)="activeModal.close('Ok click')">Ok</button>
   </div>
 </div>
 <!-- </div> -->
