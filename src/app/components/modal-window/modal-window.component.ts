@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ElementRef, OnDestroy, OnChanges, Output, EventEmitter } from '@angular/core';
-import { NgbModal, NgbModalConfig, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig, NgbActiveModal, NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { StackedModalComponent } from './stacked-modal/stacked-modal.component';
 
 
@@ -11,7 +11,7 @@ import { StackedModalComponent } from './stacked-modal/stacked-modal.component';
 })
 export class ModalWindowComponent implements OnInit, OnDestroy, OnChanges {
   @Input() isPopupOpen: boolean;
-
+  heading = 'Member Eligibility Details';
 
   // MODALS: {[name: string]: Type<any>} = {
   //  // focusFirst: NgbdModalConfirm,
@@ -57,6 +57,12 @@ export class ModalWindowComponent implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy() {
     // We must delete our modal from the body when we move away from the modules component
     // this.elementRef.nativeElement.remove();
+  }
+
+  public beforeChange($event: NgbTabChangeEvent) {
+    // if ($event.nextId === 'tab-preventchange2') {
+    //   $event.preventDefault();
+    // }
   }
 
 }
